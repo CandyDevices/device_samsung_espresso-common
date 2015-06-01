@@ -26,6 +26,15 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 LOCAL_PATH := device/samsung/espresso-common
 
+# Low-RAM optimizations
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.config.low_ram=true \
+    persist.sys.force_highendgfx=true \
+    dalvik.vm.jit.codecachesize=0 \
+    config.disable_atlas=true \
+    ro.config.max_starting_bg=8 \
+    ro.sys.fw.bg_apps_limit=16
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
