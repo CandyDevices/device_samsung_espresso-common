@@ -34,6 +34,18 @@ BOARD_KERNEL_BASE := 0x40000000
 # Use dlmalloc
 MALLOC_IMPL := dlmalloc
 
+# ROM Optimization
+USE_GRAPHITE := true
+USE_FSTRICT_FLAGS := true
+FSTRICT_ALIASING_WARNING_LEVEL := 3
+USE_BINARY_FLAGS := true
+USE_EXTRA_CLANG_FLAGS := true
+ADDITIONAL_TARGET_ARM_OPT := true
+ADDITIONAL_TARGET_THUMB_OPT := true
+CANDY_ARM_OPT_LEVEL := -O3
+CANDY_THUMB_OPT_LEVEL := -O3
+USE_LTO := true
+
 # External SGX Module
 SGX_MODULES:
 	make clean -C $(HARDWARE_TI_OMAP4_BASE)/pvr-source/eurasiacon/build/linux2/omap4430_android
